@@ -1,35 +1,33 @@
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+import cv2
 
-def dibujar_semi_circulo(ax, centro_x, centro_y, radio, angulo_inicio, angulo_fin):
-    """
-    Dibuja un semicírculo orientado con un ángulo específico.
+# Asegúrate de que la ruta del archivo sea correcta
+chevrolet = cv2.imread('./chevrolet.png')
+#Binarizar la imagen
+imgCanny = cv2.Canny(chevrolet, 10, 50)
+imgCannyBGR = cv2.cvtColor(imgCanny, cv2.COLOR_GRAY2BGR)
+#Encontrar contornos
+contornos , jerarquia = cv2.findContours(imgCanny, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+print("**** Coordenadas de los contornos del logo de Chevrolet ****")
+print(contornos)
 
-    ax: el eje donde se dibujará el semicírculo.
-    centro_x, centro_y: las coordenadas del centro del semicírculo.
-    radio: el radio del semicírculo.
-    angulo_inicio, angulo_fin: ángulos que definen la apertura del semicírculo.
-    """
-    arc = patches.Arc((centro_x, centro_y), radio*2, radio*2,
-                      angle=0, theta1=angulo_inicio, theta2=angulo_fin,
-                      color="black", linewidth=2)
-    ax.add_patch(arc)
+#Dibujar contornos 
+cv2.drawContours(imgCannyBGR, contornos, -1, (200,0,0), 3)
+cv2.imshow("Imagen", imgCannyBGR)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
-def dibujar_letra_B(ax, offset):
-    # Dibuja la línea vertical de la "B"
-    ax.plot([-0.5+offset, -0.5+offset], [0, -3], color="black", linewidth=2)
-    
-    # Dibuja los semicírculos de la "B" orientados hacia la derecha
-    dibujar_semi_circulo(ax, -0.5+offset, -0.75, 0.75, 270, 90)
-    dibujar_semi_circulo(ax, -0.5+offset, -2.25, 0.75, 270, 90)
+# Asegúrate de que la ruta del archivo sea correcta
+hyundai = cv2.imread('./hyundai.png')
+#Binarizar la imagen
+imgCannyH = cv2.Canny(hyundai, 10, 50)
+imgCannyBGR2 = cv2.cvtColor(imgCannyH, cv2.COLOR_GRAY2BGR)
+#Encontrar contornos
+contornos2 , jerarquia = cv2.findContours(imgCannyH, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+print("**** Coordenadas de los contornos del logo de Hyundai ****")
+print(contornos2)
 
-# Configuración del gráfico
-fig, ax = plt.subplots()
-ax.set_xlim(-3, 1)
-ax.set_ylim(-4, 1)
-ax.axis('off')
-
-# Dibuja la letra "B"
-dibujar_letra_B(ax, 0)
-
-plt.show()
+#Dibujar contornos 
+cv2.drawContours(imgCannyBGR2, contornos2, -1, (200,0,0), 3)
+cv2.imshow("Imagen", imgCannyBGR2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
