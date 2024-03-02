@@ -79,6 +79,33 @@ if opcion == 2:
     LineaRecta(27, 4, 30, 1)
     LineaRecta(30, 4, 30, 7)
 
+if opcion == 3:
+    #Letra Y
+    LineaRecta(3, 1, 3, 5)
+    LineaRecta(1, 7, 3, 5)
+    LineaRecta(3, 5, 5, 7)
+    #Letra A
+    LineaRecta(7, 1, 7, 7)
+    LineaRecta(10, 1, 10, 7)
+    LineaRecta(7, 4, 10, 4)
+    LineaRecta(7, 7, 10, 7)
+    #Letra D
+    LineaRecta(12, 1, 12, 7)
+    LineaRecta(15, 1, 15, 7)
+    LineaRecta(12, 7, 15, 7)
+    LineaRecta(12, 1, 15, 1)
+    #Letra E
+    LineaRecta(17, 1, 17, 7)
+    LineaRecta(17, 7, 20, 7)
+    LineaRecta(17, 4, 20, 4)
+    LineaRecta(17, 1, 20, 1)
+    #Letra R
+    LineaRecta(22, 1, 22, 7)
+    LineaRecta(22, 7, 25, 7)
+    LineaRecta(22, 4, 25, 4)
+    LineaRecta(22, 4, 25, 1)
+    LineaRecta(25, 4, 25, 7)
+
 if opcion == 4:
     #Letra A
     LineaRecta(1, 1, 1, 9)
