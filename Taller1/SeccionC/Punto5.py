@@ -1,29 +1,106 @@
-import matplotlib.pyplot as ploit
+import matplotlib.pyplot as plt
 
-# Obtener las coordenadas del usuario
-x1 = 1
-y1 = 1
-x2 = 3
-y2 = 3
+def LineaRecta(x0, y0, x1, y1):
+    # Dibuja el vector
+    plt.arrow(x0, y0, x1-x0, y1-y0, head_width=0.05, head_length=0.1, fc='blue', ec='blue')
+    
+    
 
-# Crear la figura y los ejes 3D
-figura = ploit.figure()
-axes = figura.add_subplot(111)
+opcion=int(input("\n¿Cuál nombre deseas?: \n\n1. Sebas\n2. Helmer\n3. Yader\n4. Alejo\n"))
 
-# Dibujar el vector
-axes.quiver(x1, y1, x2, y2, color='purple')
+plt.figure()
+plt.xlim(0, 31)
+plt.ylim(0, 10)
+plt.xlabel('Eje X')
+plt.ylabel('Eje Y')
 
-# Establecer los límites de los ejes
-max_coord = max(x1, y1 , x2, y2)
-axes.set_xlim([x1, x2])
-axes.set_ylim([y1, y2])
+if opcion == 1:
+    
+    #Letra S
+    LineaRecta(1, 1, 5, 1)
+    LineaRecta(5, 1, 5, 5)
+    LineaRecta(5, 5, 1, 5)
+    LineaRecta(1, 5, 1, 9)
+    LineaRecta(1, 9, 5, 9)
+    
+    #Letra E
+    LineaRecta(7, 1, 7, 9)
+    LineaRecta(7, 9, 11, 9)
+    LineaRecta(7, 5, 11, 5)
+    LineaRecta(7, 1, 11, 1)
+    
+    #Letra B
+    LineaRecta(13, 1, 13, 9)
+    LineaRecta(13, 9, 17, 9)
+    LineaRecta(13, 5, 17, 5)
+    LineaRecta(13, 1, 17, 1)
+    LineaRecta(17, 9, 17, 1)
 
-# Etiquetar los ejes
-axes.set_xlabel('X')
-axes.set_ylabel('Y')
+    #Letra A
+    LineaRecta(19, 1, 19, 9)
+    LineaRecta(23, 1, 23, 9)
+    LineaRecta(19, 9, 23, 9)
+    LineaRecta(19, 5, 23, 5)
 
-# Título de la gráfica
-ploit.title('Sistema Coordenado 2D')
+    #Letra S
+    LineaRecta(25, 1, 29, 1)
+    LineaRecta(29, 1, 29, 5)
+    LineaRecta(29, 5, 25, 5)
+    LineaRecta(25, 5, 25, 9)
+    LineaRecta(25, 9, 29, 9)
+    
+if opcion == 2:
+    #Letra H
+    LineaRecta(1, 1, 1, 7)
+    LineaRecta(4, 1, 4, 7)
+    LineaRecta(1, 4, 4, 4)
+    #Letra E
+    LineaRecta(6, 1, 6, 7)
+    LineaRecta(6, 7, 9, 7)
+    LineaRecta(6, 4, 9, 4)
+    LineaRecta(6, 1, 9, 1)
+    #Letra L
+    LineaRecta(11, 1, 11, 7)
+    LineaRecta(11, 1, 14, 1)
+    #Letra M
+    LineaRecta(16, 1, 16, 7)
+    LineaRecta(16, 7, 18, 4)
+    LineaRecta(18, 4, 20, 7)
+    LineaRecta(20, 1, 20, 7)
+    #Letra E
+    LineaRecta(22, 1, 22, 7)
+    LineaRecta(22, 7, 25, 7)
+    LineaRecta(22, 4, 25, 4)
+    LineaRecta(22, 1, 25, 1)
+    #Letra R
+    LineaRecta(27, 1, 27, 7)
+    LineaRecta(27, 7, 30, 7)
+    LineaRecta(27, 4, 30, 4)
+    LineaRecta(27, 4, 30, 1)
+    LineaRecta(30, 4, 30, 7)
 
-# Mostrar la gráfica
-ploit.show()
+if opcion == 4:
+    #Letra A
+    LineaRecta(1, 1, 1, 9)
+    LineaRecta(1, 9, 5, 9)
+    LineaRecta(5, 1, 5, 9)
+    LineaRecta(1, 5, 5, 5)
+    #Letra L
+    LineaRecta(7, 1, 7, 9)
+    LineaRecta(7, 1, 11, 1)
+    #Letra E
+    LineaRecta(13, 1, 13, 9)
+    LineaRecta(13, 9, 17, 9)
+    LineaRecta(13, 5, 17, 5)
+    LineaRecta(13, 1, 17, 1)
+    #Letra J
+    LineaRecta(19, 9, 23, 9)
+    LineaRecta(21, 9, 21, 1)
+    LineaRecta(19, 1, 21, 1)
+    #Letra O
+    LineaRecta(24, 1, 24, 9)
+    LineaRecta(28, 1, 28, 9)
+    LineaRecta(24, 9, 28, 9)
+    LineaRecta(24, 1, 28, 1)
+
+plt.show()
