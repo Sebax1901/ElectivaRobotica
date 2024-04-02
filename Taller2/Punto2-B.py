@@ -61,6 +61,8 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         self.led_amarillo.setFont(font)
         self.led_amarillo.setObjectName("led_amarillo")
+        self.led_amarillo.setStyleSheet('QPushButton {background-color: yellow; color: black;}')
+        self.led_rojo.setStyleSheet('QPushButton {background-color: red; color: black;}')
         self.led_rojo = QtWidgets.QPushButton(Dialog)
         self.led_rojo.setGeometry(QtCore.QRect(290, 80, 161, 61))
         font = QtGui.QFont()
@@ -119,8 +121,6 @@ class Ui_Dialog(object):
         self.led_rojo.setText(_translate("Dialog", "Led Rojo"))
         self.label_3.setText(_translate("Dialog", "Led verde"))
         self.label_4.setText(_translate("Dialog", "Led Azul"))
-        self.led_amarillo.setStyleSheet('QPushButton {background-color: yellow; color: black;}')
-        self.led_rojo.setStyleSheet('QPushButton {background-color: red; color: black;}')
     
     def LedAmarillo(self):
         global estado_amarillo
