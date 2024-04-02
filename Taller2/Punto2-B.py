@@ -6,7 +6,9 @@ GPIO.setmode(GPIO.BCM) #BCM - Importación de los pines para llamarlos por la di
 GPIO.setwarnings(False) #Desactiva los mensajes 
 
 led_amarilloGPIO = 23
+GPIO.setup(led_amarilloGPIO, GPIO.OUT)
 led_rojoGPIO = 24
+GPIO.setup(led_rojoGPIO, GPIO.OUT)
 GPIO.setup(13, GPIO.OUT)
 led_verdeGPIO = GPIO.PWM(13, 100)
 led_verdeGPIO.start(50)
@@ -16,6 +18,9 @@ led_azulGPIO.start(50)
 
 estado_amarillo = 0
 estado_rojo = 0
+
+GPIO.output(led_amarilloGPIO, GPIO.LOW)
+GPIO.output(led_rojoGPIO, GPIO.LOW)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -100,7 +105,7 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Calculadora"))
+        Dialog.setWindowTitle(_translate("Dialog", "LEDS"))
         self.title_window.setText(_translate("Dialog", "Escritura de Puertos"))
         self.label.setText(_translate("Dialog", "Sebastián Camilo Ariza Rodríguez\n"
 "Alejandro Melo\n"
@@ -110,8 +115,11 @@ class Ui_Dialog(object):
         self.led_rojo.setText(_translate("Dialog", "Led Rojo"))
         self.label_3.setText(_translate("Dialog", "Led verde"))
         self.label_4.setText(_translate("Dialog", "Led Azul"))
+        self.led_amarillo.setStyleSheet('QPushButton {background-color: yellow; color: black;}')
+        self.led_rojo.setStyleSheet('QPushButton {background-color: red; color: black;}')
     
     def LedAmarillo(self):
+        global estado_amarillo
         if estado_amarillo == 0:
             GPIO.output(led_amarilloGPIO, GPIO.HIGH)
             estado_amarillo = 1
@@ -120,6 +128,7 @@ class Ui_Dialog(object):
             estado_amarillo = 0
     
     def LedRojo(self):
+        global estado_rojo
         if estado_rojo == 0:
             GPIO.output(led_rojoGPIO, GPIO.HIGH)
             estado_rojo = 1
@@ -133,8 +142,8 @@ class Ui_Dialog(object):
         sleep(0.02)
 
     def LedRojo(self):
-        potencia = float(self.led_rojo.value())
-        led_rojoGPIO.ChangeDutyCycle(potencia)
+        potencia = float(self.led_verde.value())
+        led_verdeGPIO.ChangeDutyCycle(potencia)
         sleep(0.02)
         
 import logo_rc
