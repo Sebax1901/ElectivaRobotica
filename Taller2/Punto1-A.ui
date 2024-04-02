@@ -103,6 +103,9 @@ Helmer Sierra Sierra</string>
      <pointsize>14</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: yellow; color: black</string>
+   </property>
    <property name="text">
     <string>Led amarillo</string>
    </property>
@@ -121,6 +124,9 @@ Helmer Sierra Sierra</string>
      <family>Arial</family>
      <pointsize>14</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: red; color: white</string>
    </property>
    <property name="text">
     <string>Led Rojo</string>
