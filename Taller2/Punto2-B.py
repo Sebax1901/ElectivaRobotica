@@ -7,11 +7,14 @@ GPIO.setwarnings(False) #Desactiva los mensajes
 
 led_amarilloGPIO = 23
 GPIO.setup(led_amarilloGPIO, GPIO.OUT)
-led_rojoGPIO = 24
+
+led_rojoGPIO = 25
 GPIO.setup(led_rojoGPIO, GPIO.OUT)
+
 GPIO.setup(13, GPIO.OUT)
 led_verdeGPIO = GPIO.PWM(13, 100)
 led_verdeGPIO.start(50)
+
 GPIO.setup(12, GPIO.OUT)
 led_azulGPIO = GPIO.PWM(12, 100)
 led_azulGPIO.start(50)
@@ -102,6 +105,7 @@ class Ui_Dialog(object):
         self.led_amarillo.clicked.connect(self.LedAmarillo)
         self.led_rojo.clicked.connect(self.LedRojo)
         self.led_azul.valueChanged.connect(self.LedAzul)
+        self.led_verde.valueChanged.connect(self.LedVerde)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -141,7 +145,7 @@ class Ui_Dialog(object):
         led_azulGPIO.ChangeDutyCycle(potencia)
         sleep(0.02)
 
-    def LedRojo(self):
+    def LedVerde(self):
         potencia = float(self.led_verde.value())
         led_verdeGPIO.ChangeDutyCycle(potencia)
         sleep(0.02)
