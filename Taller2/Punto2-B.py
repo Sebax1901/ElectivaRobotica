@@ -25,6 +25,38 @@ estado_rojo = 0
 GPIO.output(led_amarilloGPIO, GPIO.LOW)
 GPIO.output(led_rojoGPIO, GPIO.LOW)
 
+styleYellow = '''
+QWidget {
+    background-color: yellow;
+}       
+
+QPushButton {
+    background-color: yellow;
+    color: black;
+
+    border-radius: 35px;        
+    border-width: 1px;
+    border-style: solid;
+}
+
+'''
+
+styleRed = '''
+QWidget {
+    background-color: red;
+}       
+
+QPushButton {
+    background-color: red;
+    color: white;
+
+    border-radius: 35px;        
+    border-width: 1px;
+    border-style: solid;
+}
+
+'''
+
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -61,10 +93,10 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         self.led_amarillo.setFont(font)
         self.led_amarillo.setObjectName("led_amarillo")
-        self.led_amarillo.setStyleSheet("background-color: yellow; color: black")
+        self.led_amarillo.setStyleSheet(styleYellow)
         self.led_rojo = QtWidgets.QPushButton(Dialog)
         self.led_rojo.setGeometry(QtCore.QRect(290, 80, 161, 61))
-        self.led_rojo.setStyleSheet("background-color: red; color: white")
+        self.led_rojo.setStyleSheet(styleRed)
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(14)
