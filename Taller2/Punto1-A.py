@@ -903,68 +903,129 @@ class Ui_Dialog(object):
 
     def Seno(self):
         if self.tipo_entrada.currentText() == "Radianes":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             resultado = round(math.sin(valor),5)
             self.resultado2.setText(str(resultado))
         elif self.tipo_entrada.currentText() == "Grados":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             valor_grados = math.radians(valor)
             resultado = round(math.sin(valor_grados),5)
             self.resultado2.setText(str(resultado))
             
     def Coseno(self):
         if self.tipo_entrada.currentText() == "Radianes":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             resultado = round(math.cos(valor),5)
             self.resultado2.setText(str(resultado))
         elif self.tipo_entrada.currentText() == "Grados":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             valor_grados = math.radians(valor)
             resultado = round(math.cos(valor_grados),5)
             self.resultado2.setText(str(resultado))
 
     def Tangente(self):
         if self.tipo_entrada.currentText() == "Radianes":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             resultado = round(math.tan(valor),5)
             self.resultado2.setText(str(resultado))
         elif self.tipo_entrada.currentText() == "Grados":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             valor_grados = math.radians(valor)
             resultado = round(math.tan(valor_grados),5)
             self.resultado2.setText(str(resultado))
     
     def Cotangente(self):
         if self.tipo_entrada.currentText() == "Radianes":
-            valor = int(self.valor3.toPlainText())
-            resultado = round((1 / math.tan(valor)),5)
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
+            
+            if valor == 0:
+                resultado = "Error"
+            else:
+                resultado = round((1 / math.tan(valor)),5)
             self.resultado2.setText(str(resultado))
         elif self.tipo_entrada.currentText() == "Grados":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             valor_grados = math.radians(valor)
-            resultado = round((1 / math.tan(valor_grados)),5)
+            if valor == 0:
+                resultado = "Error"
+            else:
+                resultado = round((1 / math.tan(valor_grados)),5)
             self.resultado2.setText(str(resultado))
     
     def Secante(self):
         if self.tipo_entrada.currentText() == "Radianes":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             resultado = round((1 / math.cos(valor)),5)
             self.resultado2.setText(str(resultado))
         elif self.tipo_entrada.currentText() == "Grados":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             valor_grados = math.radians(valor)
             resultado = round((1 / math.cos(valor_grados)),5)
             self.resultado2.setText(str(resultado))
 
     def Cosecante(self):
         if self.tipo_entrada.currentText() == "Radianes":
-            valor = int(self.valor3.toPlainText())
-            resultado = round((1 / math.sin(valor)),5)
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
+            if valor == 0:
+                resultado = "Error"
+            else:
+                resultado = round((1 / math.sin(valor)),5)
             self.resultado2.setText(str(resultado))
         elif self.tipo_entrada.currentText() == "Grados":
-            valor = int(self.valor3.toPlainText())
+            try:
+                valor = int(self.valor3.toPlainText())
+            except:
+                valor = 0
+                self.valor3.setText("0")
             valor_grados = math.radians(valor)
-            resultado = round((1 / math.sin(valor_grados)),5)
+            if valor == 0:
+                resultado = "Error"
+            else:
+                resultado = round((1 / math.sin(valor_grados)),5)
             self.resultado2.setText(str(resultado))
 
 class MiDialogo(QtWidgets.QDialog):
@@ -984,7 +1045,6 @@ if __name__ == "__main__":
     Dialog = QtWidgets.QDialog()
     ui = Ui_Dialog()
     ui.setupUi(Dialog)
-    Dialog.show()
     dialogo = MiDialogo()
     dialogo.show()
     sys.exit(app.exec_())

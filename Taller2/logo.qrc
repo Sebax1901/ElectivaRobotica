@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="/images">
+    <file>cartesiano.png</file>
+    <file>cilindrico.jpg</file>
+    <file>esferico.jpg</file>
     <file>logo.png</file>
   </qresource>
 </RCC>
