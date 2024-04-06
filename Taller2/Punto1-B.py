@@ -101,6 +101,8 @@ class Ui_Dialog(object):
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
 
+        self.posicion.valueChanged(self.Run)
+
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
@@ -116,6 +118,16 @@ class Ui_Dialog(object):
         self.seleccion.setItemText(0, _translate("Dialog", "Servo1"))
         self.seleccion.setItemText(1, _translate("Dialog", "Servo2"))
         self.label_4.setText(_translate("Dialog", "Selección del Servo"))
+    
+    def Run(self):
+        if self.seleccion.currentText() == "Servo1":
+            global pwm1
+            grados = porcentaje(float(self.posicion.value()))
+            pwm1.ChangeDutyCycle(grados)
+            sleep(0.1)
+            pwm1.ChangeDutyCycle(0)
+            sleep(0.1)
+
 import logo_rc
 
 
