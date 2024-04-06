@@ -4,8 +4,8 @@ import numpy                                #Libreria para realizar el manejo de
 import matplotlib.pyplot as plt             #Libreria requerida para generar las graficas
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from PyQt5.QtWidgets import QWidget
-
+import matplotlib
+matplotlib.use('Qt5Agg')
 
 class Ui_Form(object):
     def setupUi(self, Form):

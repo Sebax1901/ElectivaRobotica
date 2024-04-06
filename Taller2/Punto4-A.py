@@ -13,6 +13,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
 from matplotlib.backends.backend_qtagg import	FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Qt5Agg')
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
