@@ -13,8 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
 from matplotlib.backends.backend_qtagg import	FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('Qt5Agg')
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -31,37 +30,40 @@ class Ui_MainWindow(object):
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.horizontalSlider = QtWidgets.QSlider(self.centralwidget)
-        self.horizontalSlider.setGeometry(QtCore.QRect(70, 120, 160, 22))
+        self.horizontalSlider.setGeometry(QtCore.QRect(70, 90, 160, 22))
         self.horizontalSlider.setMinimum(1)
-        self.horizontalSlider.setMaximum(100)
+        self.horizontalSlider.setMaximum(20)
+        self.horizontalSlider.setSingleStep(1)
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
         self.horizontalSlider_2 = QtWidgets.QSlider(self.centralwidget)
-        self.horizontalSlider_2.setGeometry(QtCore.QRect(280, 120, 160, 22))
+        self.horizontalSlider_2.setGeometry(QtCore.QRect(280, 90, 160, 22))
         self.horizontalSlider_2.setMinimum(1)
-        self.horizontalSlider_2.setMaximum(100)
+        self.horizontalSlider_2.setMaximum(1000)
+        self.horizontalSlider_2.setSingleStep(10)
         self.horizontalSlider_2.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_2.setObjectName("horizontalSlider_2")
         self.horizontalSlider_3 = QtWidgets.QSlider(self.centralwidget)
-        self.horizontalSlider_3.setGeometry(QtCore.QRect(480, 120, 160, 22))
+        self.horizontalSlider_3.setGeometry(QtCore.QRect(480, 90, 160, 22))
         self.horizontalSlider_3.setMinimum(1)
-        self.horizontalSlider_3.setMaximum(100)
+        self.horizontalSlider_3.setMaximum(20)
+        self.horizontalSlider_3.setSingleStep(1)
         self.horizontalSlider_3.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_3.setObjectName("horizontalSlider_3")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(80, 100, 91, 16))
+        self.label_2.setGeometry(QtCore.QRect(80, 70, 91, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(290, 100, 121, 16))
+        self.label_3.setGeometry(QtCore.QRect(290, 70, 121, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(490, 100, 121, 16))
+        self.label_4.setGeometry(QtCore.QRect(490, 70, 121, 16))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_4.setFont(font)
@@ -84,6 +86,27 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        self.label_7.setGeometry(QtCore.QRect(100, 120, 91, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_7.setFont(font)
+        self.label_7.setText("")
+        self.label_7.setObjectName("label_7")
+        self.label_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_8.setGeometry(QtCore.QRect(320, 120, 91, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_8.setFont(font)
+        self.label_8.setText("")
+        self.label_8.setObjectName("label_8")
+        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_9.setGeometry(QtCore.QRect(510, 120, 91, 16))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_9.setFont(font)
+        self.label_9.setText("")
+        self.label_9.setObjectName("label_9")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
@@ -126,6 +149,10 @@ class Ui_MainWindow(object):
         voltaje = self.horizontalSlider.value()
         resistencia = self.horizontalSlider_2.value()
         capacitancia = 0.000001*self.horizontalSlider_3.value()
+        self.label_7.setText(f"{str(voltaje)} V")
+        self.label_8.setText(f"{str(resistencia)} Ω")
+        self.label_9.setText(f"{str(capacitancia)} F")
+        
 
         tau = resistencia * capacitancia
 
@@ -142,7 +169,6 @@ class Ui_MainWindow(object):
         self.ax.set_xlabel("Tiempo (Segundos)")
         self.ax.set_ylabel("Tensión (Voltios)")
         self.canvas.draw()
-        
 
 
 if __name__ == "__main__":
