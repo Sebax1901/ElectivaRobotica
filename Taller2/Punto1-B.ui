@@ -135,32 +135,6 @@ Helmer Sierra Sierra</string>
     <string>Posición del Servo</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="seleccion">
-   <property name="geometry">
-    <rect>
-     <x>240</x>
-     <y>120</y>
-     <width>101</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Arial</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>Servo1</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Servo2</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
@@ -178,6 +152,22 @@ Helmer Sierra Sierra</string>
    </property>
    <property name="text">
     <string>Selección del Servo</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>120</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+    </font>
    </property>
   </widget>
  </widget>

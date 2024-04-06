@@ -9,34 +9,6 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from time import sleep # Importación del módulo sleep para hacer delays
-
-GPIO.setmode(GPIO.BCM) #BCM - Importación de los pines para llamarlos por la dirección física
-GPIO.setwarnings(False) #Desactiva los mensajes 
-
-pwmgpio13 = 13 #Use el GPIO13 en BCM = PWM1 Para la señal de PWM
-pwmgpio12 = 12 #Use el GPIO13 en BCM = PWM1 Para la señal de PWM
-frecuencia = 50 #Esta frecuencia la da el fabricante del servomotor SG90, o sea un T = 20ms
-GPIO.setup(pwmgpio13, GPIO.OUT) #Configuro el GPIO13 como salida, o sea la señal PWM
-GPIO.setup(pwmgpio12, GPIO.OUT) #Configuro el GPIO13 como salida, o sea la señal PWM
-pwm1 = GPIO.PWM(pwmgpio13, frecuencia)
-pwm2 = GPIO.PWM(pwmgpio12, frecuencia)
-
-def porcentaje(angulo): #defino la función que va a calcular el procentaje desde el ángulo
-    if angulo > 180 or angulo < 0: #Condicion que no se va a dar
-        return False
-    
-    comienzo = 4
-    final = 12.5
-
-    radio = (final - comienzo) / 180 #Calculo el radio conel recorrido en tiempo para un giro de 180 grados
-    angulocomoporcentaje = angulo * radio #Valor del ángulo en términos de porcentaje.
-
-    return (comienzo + angulocomoporcentaje)
-
-pwm1.start(porcentaje(0)) #Arranco el PWM para que el motor esté en 90 grados
-pwm2.start(porcentaje(0)) #Arranco el PWM para que el motor esté en 90 grados
-sleep(0.5) #Espero un segundo
 
 
 class Ui_Dialog(object):
@@ -84,15 +56,6 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
-        self.seleccion = QtWidgets.QComboBox(Dialog)
-        self.seleccion.setGeometry(QtCore.QRect(240, 120, 101, 24))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(12)
-        self.seleccion.setFont(font)
-        self.seleccion.setObjectName("seleccion")
-        self.seleccion.addItem("")
-        self.seleccion.addItem("")
         self.label_4 = QtWidgets.QLabel(Dialog)
         self.label_4.setGeometry(QtCore.QRect(40, 120, 181, 22))
         font = QtGui.QFont()
@@ -100,6 +63,13 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
+        self.textEdit = QtWidgets.QTextEdit(Dialog)
+        self.textEdit.setGeometry(QtCore.QRect(230, 120, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        self.textEdit.setFont(font)
+        self.textEdit.setObjectName("textEdit")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -113,8 +83,6 @@ class Ui_Dialog(object):
 "Yader Gamba Forero\n"
 "Helmer Sierra Sierra"))
         self.label_3.setText(_translate("Dialog", "Posición del Servo"))
-        self.seleccion.setItemText(0, _translate("Dialog", "Servo1"))
-        self.seleccion.setItemText(1, _translate("Dialog", "Servo2"))
         self.label_4.setText(_translate("Dialog", "Selección del Servo"))
 import logo_rc
 

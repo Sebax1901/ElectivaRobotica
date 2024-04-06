@@ -84,15 +84,6 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
-        self.seleccion = QtWidgets.QComboBox(Dialog)
-        self.seleccion.setGeometry(QtCore.QRect(240, 120, 101, 24))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(12)
-        self.seleccion.setFont(font)
-        self.seleccion.setObjectName("seleccion")
-        self.seleccion.addItem("")
-        self.seleccion.addItem("")
         self.label_4 = QtWidgets.QLabel(Dialog)
         self.label_4.setGeometry(QtCore.QRect(40, 120, 181, 22))
         font = QtGui.QFont()
@@ -100,6 +91,13 @@ class Ui_Dialog(object):
         font.setPointSize(14)
         self.label_4.setFont(font)
         self.label_4.setObjectName("label_4")
+        self.textEdit = QtWidgets.QTextEdit(Dialog)
+        self.textEdit.setGeometry(QtCore.QRect(230, 120, 161, 31))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        self.textEdit.setFont(font)
+        self.textEdit.setObjectName("textEdit")
 
         self.posicion.valueChanged(self.Run)
 
@@ -120,10 +118,21 @@ class Ui_Dialog(object):
         self.label_4.setText(_translate("Dialog", "Selección del Servo"))
     
     def Run(self):
-        if self.seleccion.currentText() == "Servo1":
-            global pwm1
+        global pwm1
+        global pwm2
+        if self.textEdit.currentText() == "Servo1":
             grados = porcentaje(float(self.posicion.value()))
             pwm1.ChangeDutyCycle(grados)
+            sleep(0.1)
+            pwm1.ChangeDutyCycle(0)
+            sleep(0.1)
+            pwm2.ChangeDutyCycle(0)
+            sleep(0.1)
+        if self.textEdit.currentText() == "Servo2":
+            grados = porcentaje(float(self.posicion.value()))
+            pwm2.ChangeDutyCycle(grados)
+            sleep(0.1)
+            pwm2.ChangeDutyCycle(0)
             sleep(0.1)
             pwm1.ChangeDutyCycle(0)
             sleep(0.1)
